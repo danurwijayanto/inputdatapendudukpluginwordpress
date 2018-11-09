@@ -60,7 +60,22 @@
                 <td>:</td>
                 <td><?php echo $datafoto ?></td>
             </tr>
+            <tr>
+                <td>&nbsp</td>
+                <td>&nbsp</td>
+                <td>&nbsp</td>
+            </tr>
+            <tr>
+                <td><a href="<?php echo home_url("/") ?>" class="btn btn-warning" role="button">Kembali</a></td>
+                <td></td>
+                <td><button class="btn btn-primary" onclick="myFunction()">Print</button></td>
+            </tr>
         </table>
     </div>
 </body>
+<script>
+    function myFunction() {
+        window.print();
+    }
+</script>
 </html>
