@@ -32,7 +32,7 @@ function add_population_func() {
         'foto' => $attachment_id
 	) );
 	
-	wp_redirect(  home_url( '/' ) );
+	wp_redirect(  home_url( '/viewpenduduk?id1='.$wpdb->insert_id.'&id2='.$attachment_id ) );
 	exit;
 }
 

@@ -58,7 +58,8 @@ class PageTemplater {
 		);
 		// Add your templates to this array.
 		$this->templates = array(
-			'view/inputdatapenduduk.php' => 'Input Data View',
+			'view/inputdatapenduduk.php' => 'Input Data Penduduk',
+			'view/viewdatapenduduk.php' => 'View Data Penduduk',
 		);
 	}
 	/**
