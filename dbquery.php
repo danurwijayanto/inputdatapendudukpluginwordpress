@@ -1,31 +1,40 @@
 <?php
 
-function dcc_cimb_settings_add_func() {
-	global $wpdb;
-	
-	if ( !current_user_can( 'manage_options' ) ) {
-      wp_die( __('You are not allowed to be on this page.','nation') );
-	}
-	// Check that nonce field
-	check_admin_referer( 'dcc_cimb_settings_edit' );
-	
-	$dccCimbEnabled = (isset($_POST['dcc_cimb_enabled']))?$_POST['dcc_cimb_enabled']:0;
-	$dccCimbSandboxEnabled = (isset($_POST['dcc_cimb_sandbox_enabled']))?$_POST['dcc_cimb_sandbox_enabled']:0;
-	
-	$table_name = $wpdb->prefix . "dcc_cimb_conf";
+add_action( 'admin_post_add_population', 'add_population_func' );
 
-	$wpdb->update( $table_name, array( 
-		'plugin_status' => $dccCimbEnabled,
-		'sandbox_status' => $dccCimbSandboxEnabled,
-		'merchant_acc_no' => $_POST['merchant_acc_code'], 
-		'txn_password' => $_POST['txn_pass'], 
-		'company_code' => $_POST['company_code']
-	), array( 'id' => 1 ) );
+function add_population_func() {
+	global $wpdb;
+    $attachment_id = "";
+	$table_name = $wpdb->prefix . "penduduk";
+  
+    // These files need to be included as dependencies when on the front end.
+    require_once( ABSPATH . 'wp-admin/includes/image.php' );
+    require_once( ABSPATH . 'wp-admin/includes/file.php' );
+    require_once( ABSPATH . 'wp-admin/includes/media.php' );
+    
+    // Let WordPress handle the upload.
+    // Remember, 'my_image_upload' is the name of our file input in our form above.
+    $attachment_id = media_handle_upload( 'uploadfoto', 0 );
+
+    if ( is_wp_error( $attachment_id ) ) {
+        // There was an error uploading the image.
+    } else {
+        // The image was uploaded successfully!
+    }
+    
+    $wpdb->insert( $table_name, array( 
+		'nik' => $_POST['nik'],
+		'nama' => $_POST['nama'],
+		'tempat_lahir' => $_POST['tempatlahir'], 
+		'jenis_kelamin' => $_POST['tanggallahir'], 
+		'golongan_darah' => $_POST['golongandarah'],
+        'alamat' => $_POST['alamat'],
+        'foto' => $attachment_id
+	) );
 	
-	wp_redirect(  admin_url( "admin.php?page=pg-cimb-setting" ) );
+	wp_redirect(  home_url( '/' ) );
 	exit;
 }
-add_action( 'admin_post_dcc_cimb_settings_edit', 'dcc_cimb_settings_edit_func' );
 
 
 

@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="container">
-        <form>
+        <form method="POST" action="/wp-admin/admin-post.php" enctype="multipart/form-data">
             <div class="form-group row">
                 <label for="nik" class="col-sm-2 col-form-label">NIK</label>
                 <div class="col-sm-10">
@@ -60,7 +60,7 @@
             <div class="form-group row">
                 <label for="golongandarah" class="col-sm-2 col-form-label">Golongan Darah</label>
                 <div class="col-sm-10">
-                <select id="golongandarah" class="form-control">
+                <select name="golongandarah" id="golongandarah" class="form-control">
                     <option selected value="0" > - </option>
                     <option value="A">A</option>
                     <option value="B">B</option>
@@ -72,13 +72,14 @@
             <div class="form-group row">
                 <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                 <div class="col-sm-10">
-                <textarea class="form-control" id="alamat" rows="3"></textarea>
+                <textarea class="form-control" id="alamat" rows="3" name="alamat" ></textarea>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="uploadfoto" class="col-sm-2 col-form-label">Upload Foto KTP</label>
                 <div class="col-sm-10">
-                <input type="file" class="form-control-file" id="uploadfoto">
+                <!-- <input type="file" class="form-control-file" id="uploadfoto" name="foto"> -->
+                <input type="file" name="uploadfoto" id="uploadfoto" class="form-control-file" multiple="false" />
                 </div>
             </div>
             <!-- <div class="form-group row">
@@ -92,6 +93,7 @@
                 </div>
                 </div>
             </div> -->
+            <input type='hidden' name='action' value='add_population' /></table>
             <div class="form-group row">
                 <div class="col-sm-10">
                 <button type="submit" class="btn btn-primary">Simpan</button>
