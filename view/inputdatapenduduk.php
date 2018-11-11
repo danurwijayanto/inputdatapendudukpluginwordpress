@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="container">
-        <form method="POST" action="/wp-admin/admin-post.php" enctype="multipart/form-data">
+        <form method="POST" action="<?php echo admin_url('admin-post.php') ?>" enctype="multipart/form-data">
             <div class="form-group row">
                 <label for="nik" class="col-sm-2 col-form-label">NIK</label>
                 <div class="col-sm-10">
