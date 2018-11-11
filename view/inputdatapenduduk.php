@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
     
-    <link href="<?php echo plugins_url('inputpenduduk/vendor/twbs/bootstrap/dist/css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css" media="all">
-    <link href="<?php echo plugins_url('inputpenduduk/vendor/twbs/bootstrap/dist/js/bootstrap.min.js') ?>" type="text/javascript">
+    <link href="<?php echo plugins_url('inputdatapendudukpluginwordpress/vendor/twbs/bootstrap/dist/css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css" media="all">
+    <link href="<?php echo plugins_url('inputdatapendudukpluginwordpress/vendor/twbs/bootstrap/dist/js/bootstrap.min.js') ?>" type="text/javascript">
 
     <title>Input Data Penduduk</title>
 </head>
