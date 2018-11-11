@@ -23,7 +23,7 @@ function add_population_func() {
         // The image was uploaded successfully!
     }
     
-    $wpdb->insert( $table_name, array( 
+    $insert  = $wpdb->insert( $table_name, array( 
 		'nik' => $_POST['nik'],
 		'nama' => $_POST['nama'],
 		'tempat_lahir' => $_POST['tempatlahir'], 
@@ -32,9 +32,13 @@ function add_population_func() {
         'alamat' => $_POST['alamat'],
         'foto' => $attachment_id
 	) );
-	
-	wp_redirect(  home_url( '/viewpenduduk?id1='.$wpdb->insert_id.'&id2='.$attachment_id ) );
-	exit;
+    
+    if ($insert){
+        wp_redirect(  home_url( '/viewpenduduk?id1='.$wpdb->insert_id.'&id2='.$attachment_id ) );
+        exit;
+    }else{
+        echo "Error, contact our administrator";
+    }
 }
 
 
