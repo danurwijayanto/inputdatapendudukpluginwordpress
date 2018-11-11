@@ -1,6 +1,6 @@
 <?php 
     global $wpdb;
-    $datapenduduk = $wpdb->get_row('SELECT * FROM '.$wpdb->prefix.'penduduk where id='.$_GET['id1']);
+    $datapenduduk = $wpdb->get_row('SELECT * FROM '.$wpdb->prefix.'penduduk where nik='.$_GET['id1']);
     $datafoto = wp_get_attachment_image($_GET['id2'])
 ?>
 
@@ -31,6 +31,16 @@
                 <td><?php echo $datapenduduk->nama ?></td>
             </tr>
             <tr>
+                <td>Email</td>
+                <td>:</td>
+                <td><?php echo $datapenduduk->email ?></td>
+            </tr>
+            <tr>
+                <td>Telephone</td>
+                <td>:</td>
+                <td><?php echo $datapenduduk->telephone ?></td>
+            </tr>
+            <tr>
                 <td>Tempat Lahir</td>
                 <td>:</td>
                 <td><?php echo $datapenduduk->tempat_lahir ?></td>
@@ -38,7 +48,7 @@
             <tr>
                 <td>Tanggal Lahir</td>
                 <td>:</td>
-                <td><?php echo $datapenduduk->jenis_kelamin ?></td>
+                <td><?php echo $datapenduduk->tanggal_lahir ?></td>
             </tr>
             <tr>
                 <td>Jenis Kelamin</td>

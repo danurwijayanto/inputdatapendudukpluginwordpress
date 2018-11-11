@@ -23,20 +23,22 @@
         $insert  = $wpdb->insert( $table_name, array( 
             'nik' => $_POST['nik'],
             'nama' => $_POST['nama'],
+            'email' => $_POST['email'],
+            'telephone' => $_POST['telephone'],
             'tempat_lahir' => $_POST['tempatlahir'], 
-            'jenis_kelamin' => $_POST['tanggallahir'], 
+            'tanggal_lahir' => $_POST['tanggallahir'], 
+            'jenis_kelamin' => $_POST['jeniskelamin'], 
             'golongan_darah' => $_POST['golongandarah'],
             'alamat' => $_POST['alamat'],
             'foto' => $attachment_id
         ) );
         
-        if ($insert){
-            wp_redirect(  home_url( '/viewpenduduk?id1='.$wpdb->insert_id.'&id2='.$attachment_id ) );
-            exit;
+        if ($insert === FALSE){
+            wp_die( __('Input Gagal ! ' . $wpdb->last_error) ); 
         }else{
-            echo "Error, contact our administrator";
+            wp_redirect(  home_url( '/viewpenduduk?id1='.$_POST['nik'].'&id2='.$attachment_id ) );
+            exit;
         }
-
     }
 ?>
 
@@ -58,25 +60,37 @@
             <div class="form-group row">
                 <label for="nik" class="col-sm-2 col-form-label">NIK</label>
                 <div class="col-sm-10">
-                <input type="text" class="form-control" id="nik" name="nik" placeholder="NIK">
+                <input type="text" class="form-control" id="nik" name="nik" placeholder="NIK" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                 <div class="col-sm-10">
-                <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
+                <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="telephone" class="col-sm-2 col-form-label">Telephone</label>
+                <div class="col-sm-10">
+                <input type="telephone" class="form-control" id="telephone" name="telephone" placeholder="Telephone">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="tempatlahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
                 <div class="col-sm-10">
-                <input type="text" class="form-control" id="tempatlahir" name="tempatlahir" placeholder="Tempat Lahir">
+                <input type="text" class="form-control" id="tempatlahir" name="tempatlahir" placeholder="Tempat Lahir" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="tanggallahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                 <div class="col-sm-10">
-                <input type="date" class="form-control" id="tanggallahir" name="tanggallahir" placeholder="Tanggal Lahir">
+                <input type="date" class="form-control" id="tanggallahir" name="tanggallahir" placeholder="Tanggal Lahir" required>
                 </div>
             </div>
             <fieldset class="form-group">
@@ -84,13 +98,13 @@
                     <legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
                     <div class="col-sm-10">
                         <div class="form-check">
-                        <input class="form-check-input" type="radio" name="lakilaki" id="lakilaki" value="lakilaki" checked>
+                        <input class="form-check-input" type="radio" name="jeniskelamin" id="lakilaki" value="pria" checked>
                         <label class="form-check-label" for="gridRadios1">
                             Laki - laki
                         </label>
                         </div>
                         <div class="form-check">
-                        <input class="form-check-input" type="radio" name="perempuan" id="perempuan" value="perempuan">
+                        <input class="form-check-input" type="radio" name="jeniskelamin" id="perempuan" value="wanita">
                         <label class="form-check-label" for="gridRadios2">
                             Perempuan
                         </label>
@@ -102,7 +116,7 @@
                 <label for="golongandarah" class="col-sm-2 col-form-label">Golongan Darah</label>
                 <div class="col-sm-10">
                 <select name="golongandarah" id="golongandarah" class="form-control">
-                    <option selected value="0" > - </option>
+                    <option selected value="-" > - </option>
                     <option value="A">A</option>
                     <option value="B">B</option>
                     <option value="AB">AB</option>
@@ -113,14 +127,14 @@
             <div class="form-group row">
                 <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                 <div class="col-sm-10">
-                <textarea class="form-control" id="alamat" rows="3" name="alamat" ></textarea>
+                <textarea class="form-control" id="alamat" rows="3" name="alamat" required></textarea>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="uploadfoto" class="col-sm-2 col-form-label">Upload Foto KTP</label>
                 <div class="col-sm-10">
                 <!-- <input type="file" class="form-control-file" id="uploadfoto" name="foto"> -->
-                <input type="file" name="uploadfoto" id="uploadfoto" class="form-control-file" multiple="false" />
+                <input type="file" name="uploadfoto" id="uploadfoto" class="form-control-file" multiple="false" required />
                 </div>
             </div>
             <!-- <div class="form-group row">
