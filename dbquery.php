@@ -17,6 +17,7 @@ function add_population_func() {
     $attachment_id = media_handle_upload( 'uploadfoto', 0 );
 
     if ( is_wp_error( $attachment_id ) ) {
+        echo "Error Uploading File";
         // There was an error uploading the image.
     } else {
         // The image was uploaded successfully!
