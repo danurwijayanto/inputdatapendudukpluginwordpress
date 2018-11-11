@@ -7,7 +7,7 @@ Author: WPExplorer
 Author URI: http://www.wpexplorer.com/
 */
 require 'vendor/autoload.php';
-require 'dbquery.php';
+// require 'dbquery.php';
 
 class PageTemplater {
 	/**

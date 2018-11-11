@@ -1,4 +1,45 @@
 
+<?php
+    if (isset($_POST['action'])){
+        global $wpdb;
+        $attachment_id = "";
+        $table_name = $wpdb->prefix . "penduduk";
+      
+        // These files need to be included as dependencies when on the front end.
+        require_once( ABSPATH . 'wp-admin/includes/image.php' );
+        require_once( ABSPATH . 'wp-admin/includes/file.php' );
+        require_once( ABSPATH . 'wp-admin/includes/media.php' );
+        // Let WordPress handle the upload.
+        // Remember, 'my_image_upload' is the name of our file input in our form above.
+        $attachment_id = media_handle_upload( 'uploadfoto', 0 );
+    
+        if ( is_wp_error( $attachment_id ) ) {
+            echo "Error Uploading File";
+            // There was an error uploading the image.
+        } else {
+            // The image was uploaded successfully!
+        }
+        
+        $insert  = $wpdb->insert( $table_name, array( 
+            'nik' => $_POST['nik'],
+            'nama' => $_POST['nama'],
+            'tempat_lahir' => $_POST['tempatlahir'], 
+            'jenis_kelamin' => $_POST['tanggallahir'], 
+            'golongan_darah' => $_POST['golongandarah'],
+            'alamat' => $_POST['alamat'],
+            'foto' => $attachment_id
+        ) );
+        
+        if ($insert){
+            wp_redirect(  home_url( '/viewpenduduk?id1='.$wpdb->insert_id.'&id2='.$attachment_id ) );
+            exit;
+        }else{
+            echo "Error, contact our administrator";
+        }
+
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +54,7 @@
 </head>
 <body>
     <div class="container">
-        <form method="POST" action="<?php echo admin_url('admin-post.php') ?>" enctype="multipart/form-data">
+        <form method="POST" action="" enctype="multipart/form-data">
             <div class="form-group row">
                 <label for="nik" class="col-sm-2 col-form-label">NIK</label>
                 <div class="col-sm-10">
