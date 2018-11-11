@@ -11,7 +11,6 @@ function add_population_func() {
     require_once( ABSPATH . 'wp-admin/includes/image.php' );
     require_once( ABSPATH . 'wp-admin/includes/file.php' );
     require_once( ABSPATH . 'wp-admin/includes/media.php' );
-    
     // Let WordPress handle the upload.
     // Remember, 'my_image_upload' is the name of our file input in our form above.
     $attachment_id = media_handle_upload( 'uploadfoto', 0 );
