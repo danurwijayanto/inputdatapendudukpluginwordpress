@@ -24,7 +24,8 @@
             'nik' => $_POST['nik'],
             'nama' => $_POST['nama'],
             'email' => $_POST['email'],
-            'telephone' => $_POST['telephone'],
+            'telp_rumah' => $_POST['telprumah'],
+            'no_hp' => $_POST['nohp'],
             'tempat_lahir' => $_POST['tempatlahir'], 
             'tanggal_lahir' => $_POST['tanggallahir'], 
             'jenis_kelamin' => $_POST['jeniskelamin'], 
@@ -76,9 +77,15 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="telephone" class="col-sm-2 col-form-label">Telephone</label>
+                <label for="telephone" class="col-sm-2 col-form-label">Telp Rumah</label>
                 <div class="col-sm-10">
-                <input type="telephone" class="form-control" id="telephone" name="telephone" placeholder="Telephone">
+                <input type="text" class="form-control" id="telephone" name="telprumah" placeholder="Telp Rumah">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="nohp" class="col-sm-2 col-form-label">No HP</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" id="nohp" name="nohp" placeholder="No HP">
                 </div>
             </div>
             <div class="form-group row">

@@ -36,9 +36,14 @@
                 <td><?php echo $datapenduduk->email ?></td>
             </tr>
             <tr>
-                <td>Telephone</td>
+                <td>Telp Rumah</td>
                 <td>:</td>
-                <td><?php echo $datapenduduk->telephone ?></td>
+                <td><?php echo $datapenduduk->telp_rumah ?></td>
+            </tr>
+            <tr>
+                <td>No HP</td>
+                <td>:</td>
+                <td><?php echo $datapenduduk->no_hp ?></td>
             </tr>
             <tr>
                 <td>Tempat Lahir</td>
