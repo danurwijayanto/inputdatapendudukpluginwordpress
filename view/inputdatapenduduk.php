@@ -1,5 +1,7 @@
 
 <?php
+    // require __DIR__.'/../vendor/autoload.php';
+    use Carbon\Carbon;
     if (isset($_POST['action'])){
         global $wpdb;
         $attachment_id = "";
@@ -24,13 +26,14 @@
             'nik' => $_POST['nik'],
             'nama' => $_POST['nama'],
             'email' => $_POST['email'],
-            'telp_rumah' => $_POST['telprumah'],
+            // 'telp_rumah' => $_POST['telprumah'],
             'no_hp' => $_POST['nohp'],
             'tempat_lahir' => $_POST['tempatlahir'], 
             'tanggal_lahir' => $_POST['tanggallahir'], 
             'jenis_kelamin' => $_POST['jeniskelamin'], 
-            'golongan_darah' => $_POST['golongandarah'],
+            // 'golongan_darah' => $_POST['golongandarah'],
             'alamat' => $_POST['alamat'],
+            'created_at' =>  Carbon::now('Asia/Jakarta'),
             'foto' => $attachment_id
         ) );
         
@@ -76,12 +79,12 @@
                 <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                 </div>
             </div>
-            <div class="form-group row">
+            <!-- <div class="form-group row">
                 <label for="telephone" class="col-sm-2 col-form-label">Telp Rumah</label>
                 <div class="col-sm-10">
                 <input type="text" class="form-control" id="telephone" name="telprumah" placeholder="Telp Rumah">
                 </div>
-            </div>
+            </div> -->
             <div class="form-group row">
                 <label for="nohp" class="col-sm-2 col-form-label">No HP</label>
                 <div class="col-sm-10">
@@ -119,7 +122,7 @@
                     </div>
                 </div>
             </fieldset>
-            <div class="form-group row">
+            <!-- <div class="form-group row">
                 <label for="golongandarah" class="col-sm-2 col-form-label">Golongan Darah</label>
                 <div class="col-sm-10">
                 <select name="golongandarah" id="golongandarah" class="form-control">
@@ -130,7 +133,7 @@
                     <option value="O">O</option>
                 </select>
                 </div>
-            </div>
+            </div> -->
             <div class="form-group row">
                 <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                 <div class="col-sm-10">

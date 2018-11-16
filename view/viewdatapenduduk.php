@@ -35,11 +35,11 @@
                 <td>:</td>
                 <td><?php echo $datapenduduk->email ?></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>Telp Rumah</td>
                 <td>:</td>
-                <td><?php echo $datapenduduk->telp_rumah ?></td>
-            </tr>
+                <td><?php //echo $datapenduduk->telp_rumah ?></td>
+            </tr> -->
             <tr>
                 <td>No HP</td>
                 <td>:</td>
@@ -60,11 +60,11 @@
                 <td>:</td>
                 <td><?php echo $datapenduduk->jenis_kelamin ?></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>Golongan Darah</td>
                 <td>:</td>
-                <td><?php echo $datapenduduk->golongan_darah ?></td>
-            </tr>
+                <td><?php //echo $datapenduduk->golongan_darah ?></td>
+            </tr> -->
             <tr>
                 <td>Alamat</td>
                 <td>:</td>
