@@ -64,7 +64,7 @@
             <div class="col-md-3 register-left">
                 <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . '/vendor/twbs/bootstrap/dist/img/logo_gerindra.svg'; ?>" alt="Gerindra"/>
                 <h3>Selamat datang!</h3>
-                <p>Di halaman input data penduduk Partai Gerindra</p>
+                <p>Di halaman input data penduduk DAPIL Rohmad Hadiwijoyo Partai Gerindra</p>
               </br>
             </div>
             <div class="col-md-9 register-right">
@@ -110,7 +110,7 @@
                                   <label for="uploadfoto" class="col-form-label">Upload Foto KTP</label>
                                   <input type="file" name="uploadfoto" id="uploadfoto" class="form-control-file" multiple="false" required />
                                 </div>
-                                <input type='hidden' name='action' value='add_population' /></table>
+                                <input type='hidden' name='action' value='add_population' />
                                 <input type="submit" class="btnRegister"  value="Simpan"/>
                                 </form>
                             </div>
