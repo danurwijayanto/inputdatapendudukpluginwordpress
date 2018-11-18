@@ -1,10 +1,11 @@
 <?php
 /*
 Plugin Name: Input Data Penduduk
-Plugin URI: http://www.wpexplorer.com/wordpress-page-templates-plugin/
-Version: 1.1.0
-Author: WPExplorer
-Author URI: http://www.wpexplorer.com/
+Plugin URI: 
+description: 
+Version: 1.0
+Author: Noer
+Author URI: 
 */
 require 'vendor/autoload.php';
 // require 'dbquery.php';
